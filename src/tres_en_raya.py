@@ -93,7 +93,7 @@ def tablero_completo(tablero):
 
 def movimiento_jugador(tablero, jugador):
     """
-    Solicita al jugador que ingrese las coordenadas para su movimiento.
+    Solicita al jugador que introduzca las coordenadas para su movimiento.
 
     Args:
         tablero (list): El estado actual del tablero.
