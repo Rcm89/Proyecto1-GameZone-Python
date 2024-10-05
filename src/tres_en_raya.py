@@ -75,7 +75,7 @@ def hay_ganador(tablero, jugador):
         return True
     return False
 
-def tablero_lleno(tablero):
+def tablero_completo(tablero):
     """
     Verifica si el tablero está completo, lo que indica un empate.
 
@@ -180,7 +180,7 @@ def juego_tres_en_raya():
                     print("¡Felicidades! Eres el ganador.")
                     juego_activo = False
                 # Verificar si hay empate
-                elif tablero_lleno(tablero):
+                elif tablero_completo(tablero):
                     mostrar_tablero(tablero)
                     print("La partida ha finalizado en empate.")
                     juego_activo = False
@@ -195,7 +195,7 @@ def juego_tres_en_raya():
                     print("La máquina ha ganado.")
                     juego_activo = False
                 # Verificar si hay empate
-                elif tablero_lleno(tablero):
+                elif tablero_completo(tablero):
                     mostrar_tablero(tablero)
                     print("La partida ha finalizado en empate.")
                     juego_activo = False
