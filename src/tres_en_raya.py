@@ -17,7 +17,7 @@ def generar_tablero():
 
 def mostrar_tablero(tablero):
     """
-    Muestra el tablero actual en la consola.
+    Muestra el tablero actual
 
     Args:
         tablero (list): El estado actual del tablero.
