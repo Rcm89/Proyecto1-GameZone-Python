@@ -1,6 +1,6 @@
 import random
 
-def crear_tablero():
+def generar_tablero():
     """
     Crea y devuelve un tablero de 3x3 vacío representado como una lista de listas.
 
@@ -102,8 +102,8 @@ def movimiento_jugador(tablero, jugador):
     while True:
         try:
             # Solicitar coordenadas al jugador
-            fila = int(input("Introduce el numero de fila de movimiento (0, 1, 2): "))
-            columna = int(input("Introduce el numero de columna tu movimiento (0, 1, 2): "))
+            fila = int(input("Introduce el numero de fila de tu movimiento (0, 1, 2): "))
+            columna = int(input("Introduce el numero de columna de tu movimiento (0, 1, 2): "))
             # Verificar que las coordenadas estén dentro del rango
             if fila in [0, 1, 2] and columna in [0, 1, 2]:
                 # Verificar que la posición esté vacía
@@ -160,7 +160,7 @@ def juego_tres_en_raya():
     print("¡Bienvenido al juego de Tres en Raya!")
     while True:
         # Inicializar el tablero y asignar símbolos
-        tablero = crear_tablero()
+        tablero = generar_tablero()
         jugadores = ["X", "O"]
         jugador = random.choice(jugadores)
         maquina = "O" if jugador == "X" else "X"
