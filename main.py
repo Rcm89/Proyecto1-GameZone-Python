@@ -1,2 +1,20 @@
 from src import piedra_papel_tijera as ppt
 from src import ahorcado, tres_en_raya, preguntados
+def mostrar_menu():
+    print("###################################################")
+    print("#                                                 #")
+    print("#       ¡¡BIENVENIDO A RETROJUEGOS SALÓN!!        #")
+    print("# JUEGA A 4 CLÁSICOS JUEGOS PARA TODAS LAS EDADES #")                                #")
+    print("#                                                 #")
+    print("###################################################")
+    print("#                                                 #")
+    print("#        ✨  ELIGE TU JUEGO FAVORITO  ✨         #")
+    print("#                                                 #")
+    print("#        1.- Piedra, Papel, Tijera                #")
+    print("#        2.- Ahorcado                             #")
+    print("#        3.- Preguntados                          #")
+    print("#        4.- Tres en Raya                         #")
+    print("#        5️.- Salir                                #")
+    print("#                                                 #")
+    print("###################################################")
+    print("🚀     ¡Elige tu opción y empieza a jugar!      🚀")
