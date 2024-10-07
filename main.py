@@ -1,6 +1,8 @@
-#from src import piedra_papel_tijera as ppt
+from src.piedra_papel_tijera import PiedraPapelTijera
 from src.tres_en_raya import TresEnRaya
 from src.ahorcado import Ahorcado
+
+
 def mostrar_menu():
     print("###################################################")
     print("#                                                 #")
@@ -25,7 +27,7 @@ def main():
         eleccion = 0
         mostrar_menu()
         try:
-            juego_elegido = int(input("Elija el número del juego al que quiera jugar: "))
+            juego_elegido = int(input("\nElija el número del juego al que quiera jugar: "))
         
             if juego_elegido == 5:
                 print("Gracias por jugar con nosotros. Esperamos que vuelva pronto​\n")
@@ -35,7 +37,7 @@ def main():
                 eleccion = Ahorcado().jugar()
                 
             elif juego_elegido == 2:
-                #eleccion = ppt.inicio_ppt()
+                eleccion = PiedraPapelTijera().jugar()
                 pass
             elif juego_elegido == 3:
                 eleccion = TresEnRaya().jugar()
