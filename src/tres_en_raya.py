@@ -99,6 +99,7 @@ class TresEnRaya:
     def movimiento_jugador(self):
         """
         Solicita al jugador que introduzca las coordenadas para su movimiento.
+        Maneja todo lo relacionado con la entrada del movimiento del jugador incluidas las excepciones
         """
         while True:
             try:
@@ -189,7 +190,6 @@ class TresEnRaya:
     def jugar(self):
         """Gestiona el flujo del juego, alternando turnos entre el jugador y la máquina"""
         print("¡Bienvenido al juego de Tres en Raya!")
-        #seleccion_final=0
         while True:
             self.jugar_nueva_partida()
             juego_activo = True
@@ -226,8 +226,8 @@ class TresEnRaya:
             if respuesta.lower() != "s":
                 seleccion_final = self.mostrar_final_juego()
                 if seleccion_final == 1:
-                    print("¡Gracias por jugar al Tres en Raya! Vuelve cuando quieras.")
+                    return seleccion_final
                 else:
-                    print("¡Gracias por jugar! Hasta luego.")
+                    return seleccion_final
                 break
 
