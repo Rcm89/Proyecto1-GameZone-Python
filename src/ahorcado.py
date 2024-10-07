@@ -250,13 +250,7 @@ class Ahorcado:
                     return seleccion_final
                 break
 
-"""
-if __name__ == "__main__":
-    juego = Ahorcado()
-    juego.jugar()     
-"""            
-            
-            
+       
             
             
             
