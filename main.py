@@ -1,6 +1,7 @@
 from src.piedra_papel_tijera import PiedraPapelTijera
 from src.tres_en_raya import TresEnRaya
 from src.ahorcado import Ahorcado
+from src.preguntados import Preguntados
 
 
 def mostrar_menu():
@@ -44,7 +45,7 @@ def main():
                 
 
             elif juego_elegido == 4:
-                #eleccion = preguntados.inicio_preguntados()
+                eleccion = Preguntados().jugar()
                 pass
 
             else:
