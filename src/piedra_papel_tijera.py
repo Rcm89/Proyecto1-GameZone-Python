@@ -3,11 +3,10 @@ import random
 class PiedraPapelTijera:
     def __init__(self):
         """
-        Constructor de la clase JuegoPPT.
+        Constructor de la clase PPT.
         
         Inicializa los marcadores de puntaje para el jugador y la máquina.
         """
-        # Inicializar los marcadores de jugador y máquina
         self.marcador_jugador = 0
         self.marcador_maquina = 0
 
