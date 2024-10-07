@@ -1,16 +1,33 @@
 import random
 
-def obtener_preguntas():
-    """
-    Función que devuelve el diccionario de preguntas y respuestas.
-    """
-    return {
-        'Historia': [
-    {'Pregunta': '¿Cuánto duró la Guerra de los Cien Años?', 'Respuestas': {'a) 101': False, 'b) 100': False, 'c) 116': False, 'd) 99': False}},
+class Preguntados:
+    def __init__(self):
+        """
+        Constructor de la clase JuegoPreguntados.
+        
+        Inicializa los atributos necesarios para el juego:
+        - preguntas: Diccionario de preguntas categorizadas.
+        - preguntas_realizadas: Lista para rastrear preguntas ya realizadas.
+        - contador_aciertos: Contador de respuestas correctas consecutivas.
+        """
+        self.preguntas = self.obtener_preguntas()
+        self.preguntas_realizadas = []
+        self.contador_aciertos = 0
+
+    def obtener_preguntas(self):
+        """
+        Devuelve el diccionario de preguntas y respuestas categorizadas.
+        
+        Returns:
+            dict: Diccionario con categorías como claves y listas de preguntas como valores.
+        """
+        return {            
+    'Historia': [
+    {'Pregunta': '¿Cuánto duró la Guerra de los Cien Años?', 'Respuestas': {'a) 101': False, 'b) 100': True, 'c) 116': False, 'd) 99': False}},
     {'Pregunta': '¿En qué año se descubrió América?', 'Respuestas': {'a) 1492': True, 'b) 1501': False, 'c) 1212': False, 'd) 11776': False}},
     {'Pregunta': '¿Quién fue el primer presidente de la democracia española tras el franquismo?', 'Respuestas': {'a) Adolfo Suarez': True, 'b) Felipe Gonzalez': True, 'c) Florentino Perez': False, 'd) Jose María Aznar': False}},
     {'Pregunta': '¿Quién fue el responsable de la Reforma Protestante?', 'Respuestas': {'a) Martín Lutero': True, 'b) Juan Calvino': False, 'c) Enrique VIII': False, 'd) Francisco de Asís': False}},
-    {'Pregunta': '¿Cuándo cayó el Muro de Berlín?', 'Respuestas': {'a) 1989': True, 'b) 1990': False, 'c) 1979': False, 'd) 1985': False}},
+    {'Pregunta': '¿Cuándo cayó el Muro de Berlín?', 'Respuestas': {'a) 1979': False, 'b) 1990': False, 'c) 1989': True, 'd) 1985': False}},
     {'Pregunta': '¿Qué reina inglesa fue conocida como "La reina virgen"?', 'Respuestas': {'a) Isabel I': True, 'b) María I': False, 'c) Isabel II': False, 'd) Ana Bolena': False}},
     {'Pregunta': '¿En qué año comenzó la Primera Guerra Mundial?', 'Respuestas': {'a) 1934': False, 'b) 1918': False, 'c) 1939': False, 'd) 1914': True}},
     {'Pregunta': '¿Quién lideró la Revolución Rusa de 1917?', 'Respuestas': {'a) Lenin': True, 'b) Stalin': False, 'c) Lenin': False, 'd) Gorbachov': False}},
@@ -31,7 +48,7 @@ def obtener_preguntas():
     {'Pregunta': '¿Cual es la montaña mas alta?', 'Respuestas': {'a) K2': False, 'b) Titanic': True, 'c) Mont Blanc': False, 'd) Acongcagua': False}},
     {'Pregunta': '¿Cuál es el país más grande del mundo?', 'Respuestas': {'a) Rusia': True, 'b) Canadá': False, 'c) China': False, 'd) Estados Unidos': False}},
     {'Pregunta': '¿Cuál es el idioma más hablado del mundo?', 'Respuestas': {'a) Inglés': False, 'b) Mandarín': True, 'c) Español': False, 'd) Hindi': False}},
-    {'Pregunta': '¿Cuál es el país más pequeño de Europa?', 'Respuestas': {'a) Monaco': False, 'b) San Mar ino': False, 'c) Andorra': False, 'd) El Vaticano': True}},
+    {'Pregunta': '¿Cuál es el país más pequeño de Europa?', 'Respuestas': {'a) Monaco': False, 'b) San Marino': False, 'c) Andorra': False, 'd) El Vaticano': True}},
     {'Pregunta': '¿Cuál es el río más largo del mundo?', 'Respuestas': {'a) Nilo': True, 'b) Amazonas': False, 'c) Danubio': False, 'd) Misisipi': False}},
     {'Pregunta': '¿Cuál es el país más poblado del mundo?', 'Respuestas': {'a) China': True, 'b) India': False, 'c) Estados Unidos': False, 'd) Brasil': False}},
     {'Pregunta': '¿Qué país tiene la mayor cantidad de pirámides?', 'Respuestas': {'a) Egipto': False, 'b) Perú': False, 'c) México': False, 'd) Sudán': True}},
@@ -46,11 +63,11 @@ def obtener_preguntas():
     {'Pregunta': '¿Quién escribió "Don Quijote de la Mancha"?', 'Respuestas': {'a) William Shakespeare': False, 'b) Gabriel García Márquez': False, 'c) Miguel de Cervantes': True, 'd) Federico García Lorca': False}},
     {'Pregunta': '¿Qué órgano del cuerpo humano consume más energía?', 'Respuestas': {'a) El cerebro': True, 'b) El corazón': False, 'c) El hígado': False, 'd) Los pulmones': False}},
     {'Pregunta': '¿Cuál es el metal más abundante en la corteza terrestre?', 'Respuestas': {'a) Aluminio': True, 'b) Hierro': False, 'c) Oro': False, 'd) Cobre': False}},
-    {'Pregunta': '¿Cuál es el océano más grande del mundo?', 'Respuestas': {'a) Pacífico': True, 'b) Atlántico': False, 'c) Índico': False, 'd) Antártico': False}},
+    {'Pregunta': '¿Cuál es el océano más grande del mundo?', 'Respuestas': {'a) Antártico': False, 'b) Atlántico': False, 'c) Índico': False, 'd) Pacífico': True}},
     {'Pregunta': '¿Qué continente es conocido como "el continente blanco"?', 'Respuestas': {'a) Antártida': True, 'b) Europa': False, 'c) África': False, 'd) Oceanía': False}}
   ],
   'Entretenimiento': [
-    {'Pregunta': '¿Quién interpretó a Jack en la película "Titanic"?', 'Respuestas': {'a) Leonardo DiCaprio': True, 'b) Brad Pitt': False, 'c) Johnny Depp': False, 'd) Tom Hanks': False}},
+    {'Pregunta': '¿Quién interpretó a Jack en la película "Titanic"?', 'Respuestas': {'a) Brad Pitt': False, 'b) Leonardo DiCaprio': True, 'c) Johnny Depp': False, 'd) Tom Hanks': False}},
     {'Pregunta': '¿Cuál es el superhéroe que tiene como alter ego a Clar Kent?', 'Respuestas': {'a) Batman': False, 'b) Hulk': False, 'c) Spiderman': False, 'd) Superman': True}},
     {'Pregunta': '¿En qué ciudad se encuentra el parque de atracciones Disneyland?', 'Respuestas': {'a) Anaheim': True, 'b) Orlando': False, 'c) París': False, 'd) Tokio': False}},
     {'Pregunta': '¿Cuál es la saga de películas más taquillera de la historia?', 'Respuestas': {'a) Avengers': True, 'b) Star Wars': False, 'c) Harry Potter': False, 'd) El Señor de los Anillos': False}},
@@ -68,7 +85,7 @@ def obtener_preguntas():
     {'Pregunta': '¿Qué director de cine es conocido por películas como "Inception" y "The Dark Knight"?', 'Respuestas': {'a) Christopher Nolan': True, 'b) Steven Spielberg': False, 'c) Quentin Tarantino': False, 'd) Martin Scorsese': False}},
     {'Pregunta': '¿Qué personaje de Disney pierde su zapatilla de cristal?', 'Respuestas': {'a) Cenicienta': True, 'b) Bella': False, 'c) Blanca Nieves': False, 'd) Ariel': False}},
     {'Pregunta': '¿Cuál es la serie más vista en la historia de Netflix?', 'Respuestas': {'a) Stranger Things': False, 'b) El juego del calamar': True, 'c) La Casa de Papel': False, 'd) The Crown': False}},
-    {'Pregunta': '¿Qué famosa banda sonora pertenece a la película "Tiburón"?', 'Respuestas': {'a) Tiburón': True, 'b) Jurassic Park': False, 'c) Star Wars': False, 'd) E.T.': False}},
+    {'Pregunta': '¿Cual de estas películas no dirigió Steven Spielberg?', 'Respuestas': {'a) Tiburón': False, 'b) Jurassic Park': False, 'c) Star Wars': True, 'd) E.T.': False}},
     {'Pregunta': '¿Qué famoso realizador dirigió El clu de la lucha?', 'Respuestas': {'a) Sam Mendes': False, 'b) Martin Scorsese': False, 'c) David Fincher': True, 'd) Steven Spielberg': False}}
   ],
   'Ciencia': [
@@ -95,110 +112,132 @@ def obtener_preguntas():
   ]
     }
 
-def seleccionar_pregunta(preguntas, preguntas_realizadas):
-    """
-    Selecciona aleatoriamente una pregunta que no haya sido realizada previamente.
+    def seleccionar_pregunta(self):
+        """
+        Selecciona aleatoriamente una pregunta que no haya sido realizada previamente.
+        
+        Returns:
+            tuple: Categoría y la pregunta seleccionada.
+        """
+        while True:
+            categoria = random.choice(list(self.preguntas.keys()))
+            pregunta = random.choice(self.preguntas[categoria])
+            if pregunta not in self.preguntas_realizadas:
+                self.preguntas_realizadas.append(pregunta)
+                return categoria, pregunta
 
-    Args:
-        preguntas (dict): Diccionario de preguntas por categoría.
-        preguntas_realizadas (list): Lista de preguntas ya realizadas.
+    def plantear_pregunta(self, categoria, pregunta):
+        """
+        Presenta la pregunta y las opciones al usuario.
+        
+        Args:
+            categoria (str): Categoría de la pregunta.
+            pregunta (dict): Diccionario con la pregunta y respuestas.
+        """
+        print(f"\nCategoría: {categoria}")
+        print(pregunta['Pregunta'])
+        for opcion in pregunta['Respuestas']:
+            print(opcion)
 
-    Returns:
-        dict: Una pregunta seleccionada aleatoriamente.
-    """
-    while True:
-        categoria = random.choice(list(preguntas.keys()))
-        pregunta = random.choice(preguntas[categoria])
-        if pregunta not in preguntas_realizadas:
-            preguntas_realizadas.append(pregunta)
-            return categoria, pregunta
+    def obtener_respuesta_usuario(self):
+        """
+        Solicita al usuario que ingrese su respuesta controlando que se introduzca de forma correcta
+        
+        Returns:
+            str: La opción elegida por el usuario (a, b, c o d).
+        """
+        respuesta = input("Tu respuesta (a, b, c, d): ").lower()
+        while respuesta not in ["a", "b", "c", "d"]:
+            respuesta = input("Opción inválida. Por favor ingresa a, b, c o d: ").lower()
+        return respuesta
 
-def plantear_pregunta(categoria, pregunta):
-    """
-    plantea la pregunta y las opciones al usuario.
+    def verificar_respuesta(self, pregunta, respuesta_usuario):
+        """
+        Verifica si la respuesta del usuario es correcta.
+        
+        Args:
+            pregunta (dict): Diccionario con la pregunta y respuestas.
+            respuesta_usuario (str): La opción elegida por el usuario.
+        
+        Returns:
+            tuple: (bool, str) Indica si es correcta y cuál es la opción correcta.
+        """
+        respuestas = pregunta['Respuestas']
+        respuesta_correcta = ''
+        es_correcta = False
 
-    Args:
-        categoria (str): Categoría de la pregunta.
-        pregunta (dict): Diccionario con la pregunta y respuestas.
-    """
-    print(f"\nCategoría: {categoria}")
-    print(pregunta['Pregunta'])
-    list(map(print, pregunta['Respuestas'].keys()))
+        for opcion_texto, valor in respuestas.items():
+            opcion = opcion_texto.split(')')[0]  # Extrae la letra de la opción
+            if valor:
+                respuesta_correcta = opcion
+            if opcion == respuesta_usuario:
+                es_correcta = valor
 
+        return es_correcta, respuesta_correcta
+    def mostrar_final_juego(self):
+        """
+        Instrucciones que se muestran tras finalizar el juego.
 
-def obtener_respuesta_usuario():
-    """
-    Solicita al usuario que ingrese su respuesta.
+        Returns:
+            int: devuelve un 1 o 2 dependiendo de la opción seleccionada.
+        """
+        print("Elija una opción:")
+        print("1. Volver al menú principal")
+        print("2. Salir")
+        while True:
+            try:
+                seleccion_final = int(input("Su elección: "))
+                if seleccion_final not in [1, 2]:
+                    print("Por favor introduzca un 1 o un 2.")
+                else:
+                    break
+            except ValueError:
+                print("Por favor introduzca un 1 o un 2.")
+        return seleccion_final
+    
+    def jugar(self):
+        """
+        Función principal que controla el flujo del juego.
+        
+        Permite al jugador jugar múltiples partidas, hasta que decida salir.
+        En cada partida, el jugador intenta responder correctamente a 10 preguntas consecutivas.
+        """
+        print("¡Bienvenido al juego Preguntados!")
+        jugar_de_nuevo = True
 
-    Returns:
-        str: La opción elegida por el usuario (a, b, c o c).
-    """
-    respuesta = input("Tu respuesta (a, b, c, d): ").lower()
-    while respuesta not in ["a", "b", "c", "d"]:
-        respuesta = input("Opción inválida. Por favor ingresa a, b, c o d: ").lower()
-    return respuesta
+        while jugar_de_nuevo:
+            self.contador_aciertos = 0
+            self.preguntas_realizadas = []
+            print("\nGana el primero que alcance 10 aciertos consecutivos. ¡Buena suerte!\n")
 
-def verificar_respuesta(pregunta, respuesta_usuario):
-    """
-    Verifica si la respuesta del usuario es correcta.
+            # Bucle principal de la partida
+            while self.contador_aciertos < 10:
+                categoria, pregunta_seleccionada = self.seleccionar_pregunta()
+                self.plantear_pregunta(categoria, pregunta_seleccionada)
+                respuesta_usuario = self.obtener_respuesta_usuario()
+                es_correcta, respuesta_correcta = self.verificar_respuesta(pregunta_seleccionada, respuesta_usuario)
 
-    Args:
-        pregunta (dict): Diccionario con la pregunta y respuestas.
-        respuesta_usuario (str): La opción elegida por el usuario.
+                if es_correcta:
+                    self.contador_aciertos += 1
+                    print(f"¡Correcto! Llevas {self.contador_aciertos} acierto(s) consecutivo(s).")
+                else:
+                    print(f"Incorrecto. La respuesta correcta era la opción {respuesta_correcta}.")
+                    print("Has perdido el juego.")
+                    break
 
-    Returns:
-        bool: True si la respuesta es correcta, False en caso contrario.
-        str: La opción correcta.
-    """
-    respuestas = pregunta['Respuestas']
-    respuesta_correcta = ''
-    es_correcta = False
+                # Verificar si el jugador ha ganado
+                if self.contador_aciertos == 10:
+                    print("¡Felicidades! Has respondido correctamente a 10 preguntas seguidas por lo que has ganado el juego.")
 
-    for opcion_texto, valor in respuestas.items():
-        opcion = opcion_texto.split(')')[0]  # Extrae la letra de la opción
-        if valor:
-            respuesta_correcta = opcion
-        if opcion == respuesta_usuario:
-            es_correcta = valor
-
-    return es_correcta, respuesta_correcta
-
-def jugar_preguntados():
-    """
-    Función principal que controla el flujo del juego.
-    """
-    print("¡Bienvenido al juego Preguntados!")
-    jugar_de_nuevo = True
-    preguntas = obtener_preguntas()
-
-    while jugar_de_nuevo:
-        contador_aciertos = 0
-        preguntas_realizadas = []
-
-        # Mientras las respuestas correctas sean menores que 10 el juego sigue su curso
-        # se para si hay alguna respuesta incorrecta o el contador de aciertos llega a 10 
-        while contador_aciertos < 10:  
-            categoria, pregunta_seleccionada = seleccionar_pregunta(preguntas, preguntas_realizadas)
-            plantear_pregunta(categoria, pregunta_seleccionada)
-            respuesta_usuario = obtener_respuesta_usuario()
-            es_correcta, respuesta_correcta = verificar_respuesta(pregunta_seleccionada, respuesta_usuario)
-
-            if es_correcta:
-                contador_aciertos += 1
-                print(f"¡Correcto! Llevas {contador_aciertos} acierto(s) consecutivo(s).")
-            else:
-                print(f"Incorrecto. La respuesta correcta era la opción {respuesta_correcta}.")
-                print("Has perdido el juego.")
+            # Preguntar al jugador si desea jugar otra vez y si dice que no se le da a elegir
+            # entre volver al menu principal o salir del juego
+            respuesta = input("\n¿Quieres jugar otra vez? (s/n): ").lower()
+            if respuesta != "s":
+                seleccion_final = self.mostrar_final_juego()
+                if seleccion_final == 1:
+                    print("¡Gracias por jugar al Tres en Raya! Vuelve cuando quieras.")
+                    return seleccion_final
+                else:
+                    return seleccion_final
                 break
 
-            if contador_aciertos == 10:
-                print("¡Felicidades! Has respondido correctamente a 10 preguntas seguidas por lo que has ganado el juego.")
-
-        respuesta = input("¿Quieres jugar otra vez? (s/n): ").lower()
-        if respuesta != "s":
-            jugar_de_nuevo = False
-            print("Gracias por jugar a Preguntados. ¡Vuelve cuando quieras!")
-
-# Iniciar el juego
-if __name__ == "__main__":
-    jugar_preguntados()
