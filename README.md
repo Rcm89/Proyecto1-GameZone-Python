@@ -1,5 +1,5 @@
 # Proyecto Módulo 1 Juegos Python
-![imagen]([https://aragonmusical.b-cdn.net/wp-content/uploads/2022/12/Videojuegos.webp](https://www.etsy.com/es/listing/1645599482/piedra-papel-tijera-lagarto-spock-svg?gpla=1&gao=1&&utm_source=google&utm_medium=cpc&utm_campaign=shopping_es_sp_es_all&utm_custom1=_k_Cj0KCQjw6oi4BhD1ARIsAL6pox2Kn8MspeyyiDHvjJYuLuJDFFU6kSJ2WJmr1vEMksCofYMmUlM65xQaAotFEALw_wcB_k_&utm_content=go_21055079513_159344472436_692011226347_pla-293946777986_c__1645599482eses_5328419089&utm_custom2=21055079513&gad_source=1&gclid=Cj0KCQjw6oi4BhD1ARIsAL6pox2Kn8MspeyyiDHvjJYuLuJDFFU6kSJ2WJmr1vEMksCofYMmUlM65xQaAotFEALw_wcB))
+![imagen](https://cdn.pixabay.com/photo/2022/05/24/00/05/game-7217379_1280.png)
 
 # Desarrollo de Videojuegos Clásicos en Python
 
