@@ -1,5 +1,6 @@
 #from src import piedra_papel_tijera as ppt
 from src.tres_en_raya import TresEnRaya
+from src.ahorcado import Ahorcado
 def mostrar_menu():
     print("###################################################")
     print("#                                                 #")
@@ -31,8 +32,8 @@ def main():
                 break
 
             elif juego_elegido == 1:
-                #eleccion = ahorcado.inicio_ahorcado()
-                pass
+                eleccion = Ahorcado().jugar()
+                
             elif juego_elegido == 2:
                 #eleccion = ppt.inicio_ppt()
                 pass
